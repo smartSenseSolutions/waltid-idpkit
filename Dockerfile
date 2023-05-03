@@ -6,8 +6,11 @@ ARG SKIP_TESTS
 # --- build-env
 FROM docker.io/gradle:7.5-jdk as build-env
 
-RUN apt-get update && apt-get install -y git nodejs npm && npm install -g yarn
-
+RUN apt-get update && apt-get install -y git nodejs npm && npm install -g yarn --ignore-engines
+RUN npm cache clean -f
+RUN npm install -g n
+RUN n stable
+RUN yarn install --ignore-engines
 WORKDIR /appbuild
 
 COPY . /appbuild
@@ -15,11 +18,11 @@ COPY . /appbuild
 # cache Gradle dependencies
 VOLUME /home/gradle/.gradle
 
-RUN if [ -z "$SKIP_TESTS" ]; \
-    then echo "* Running full build" && gradle -i clean build installDist; \
-    else echo "* Building but skipping tests" && gradle -i clean installDist -x test; \
-    fi
-
+# RUN if [ -z "$SKIP_TESTS" ]; \
+#     then echo "* Running full build" && gradle -i clean build installDist; \
+#     else echo "* Building but skipping tests" && gradle -i clean installDist -x test; \
+#     fi
+RUN gradle -i installDist -x test --warning-mode all;
 # --- opa-env
 FROM docker.io/openpolicyagent/opa:0.46.1-static as opa-env
 

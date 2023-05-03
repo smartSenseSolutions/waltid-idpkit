@@ -56,33 +56,44 @@
       {
         "scope": [ "award" ],
         "claim": "awd",
-        "chain": "POLYGON",
-        "smartContractAddress": "0x9bc4d80c7b77ecc7107eac3961cb1dd98930f2b2",
-          "factorySmartContractAddress": "",
+        "chain": "MUMBAI",
+        "smartContractAddress": "0x1bb0aafe6ecc827bd11a6b5aa40efa754c6a10d3",
+        "factorySmartContractAddress": "0x7d46d74023507D30ccc2d3868129fbE4e400e40B",
         "trait": "award"
       }
     ],
     "default_nft_token_claim": {
-        "chain": "GHOSTNET",
-        "factorySmartContractAddress": "",
-        "smartContractAddress": "KT1Ennr99qgqzKEUCEqypXEexH4wWzVL5a9m"
+        "chain": "MUMBAI",
+        "factorySmartContractAddress": "0x7d46d74023507D30ccc2d3868129fbE4e400e40B",
+        "smartContractAddress": "0x1bb0aafe6ecc827bd11a6b5aa40efa754c6a10d3"
     },
     "default_vp_token_claim": {
       "presentation_definition": {
-        "id": "1",
+        "id": "vp token example",
         "input_descriptors": [
-          {
-            "id": "1",
-            "constraints": {
-              "fields": [
-                {
-                  "id": "1",
-                  "path": [ "$.type" ],
-                  "filter": { "const":  "VerifiableId" }
+            {
+                "id": "verifiable id credential",
+                "format": {
+                    "ldp_vc": {
+                        "proof_type": [
+                            "JsonWebSignature2020"
+                        ]
+                    }
+                },
+                "constraints": {
+                    "fields": [
+                        {
+                            "path": [
+                                "$.type"
+                            ],
+                            "filter": {
+                                "type": "string",
+                                "pattern": "VerifiableCredential"
+                            }
+                        }
+                    ]
                 }
-              ]
             }
-          }
         ]
       }
     },

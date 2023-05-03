@@ -57,5 +57,9 @@ export default {
         '/openIdRequestUri/': 'http://localhost:8080/',
         '/verifier-api/': 'http://localhost:8080/',
         '/api/': 'http://localhost:8080/'
+    },
+
+    server: {
+        port: 5000
     }
 }

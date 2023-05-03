@@ -5,7 +5,7 @@
   "wallets": {
     "localhost": {
       "id": "localhost",
-      "url": "http://localhost:8080",
+      "url": "http://localhost:8081",
       "presentPath": "sharecredential",
       "receivePath" : "api/siop/initiateIssuance/",
       "description": "localhost wallet"

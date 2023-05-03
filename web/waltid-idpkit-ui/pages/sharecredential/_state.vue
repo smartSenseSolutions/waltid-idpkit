@@ -78,7 +78,7 @@ export default {
 
             let reqUrl = this.requestInfo.url
             let reqParams = reqUrl.substring(reqUrl.indexOf('?'), reqUrl.length - 1)
-            let fullUrl = "https://wallet.walt-test.cloud/api/siop/initiatePresentation/?" + reqParams
+            let fullUrl = "http://localhost:8081/api/siop/initiatePresentation/?" + reqParams
             console.log("Full url: " + fullUrl)
 
             window.location = fullUrl
