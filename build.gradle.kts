@@ -14,7 +14,7 @@ repositories {
     mavenCentral()
     maven("https://jitpack.io")
     maven("https://maven.walt.id/repository/waltid/")
-    maven("https://maven.walt.id/repository/waltid-ssi-kit/")
+    // maven("https://maven.walt.id/repository/waltid-ssi-kit/")
 
     maven("https://maven.walt.id/repository/danubetech")
 
@@ -33,7 +33,7 @@ dependencies {
     implementation("com.github.ajalt.clikt:clikt:3.5.0")
 
     // SSIKIT
-    implementation("id.walt:waltid-ssi-kit:1.13.0-SNAPSHOT2")
+    implementation("id.walt:waltid-ssi-kit:1.13.0-SNAPSHOT4")
     implementation("id.walt:waltid-walletkit:1.1-SNAPSHOT")
 
     // Service-Matrix
